@@ -1,0 +1,15 @@
+@media(prefers-reduced-motion: no-preference) {
+  .react-logo {
+    animation: react-logo-animation infinite 20s linear;
+  }
+}
+
+
+@keyframes react-logo-animation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

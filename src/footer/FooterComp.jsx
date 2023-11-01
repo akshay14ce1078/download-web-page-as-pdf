@@ -13,22 +13,21 @@ export const FooterComp = ({printableDomRef}) =>{
     // 
     html2Canvas(headerElement).then((canvas) => {
       const imageData = canvas.toDataURL('image/png');
-      const pdf = new jsPDF({orientation:'p', unit:'mm', pageSize:'a3', putOnlyUsedFonts:true});
+      const pdf = new jsPDF({orientation:'l', unit:'mm', pageSize:'a4', putOnlyUsedFonts:true});
 
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = pdf.internal.pageSize.getHeight();
-      const imageWidth = imageData.width;
-      const imageHeight = imageData.height;
+      const imageX = 5;
+      const imageY = 10;
+
+      const pdfWidth = pdf.internal.pageSize.getWidth() - imageX*2;
+      const pdfHeight = pdf.internal.pageSize.getHeight() - imageY*2;
+      const imageWidth = canvas.width;
+      const imageHeight = canvas.height;
       const ratio = Math.min(pdfWidth/imageWidth, pdfHeight/imageHeight);
-
-      const imageX = 1;
-      const imageY = 1;
 
       pdf.addImage(imageData,'PNG', imageX, imageY, imageWidth*ratio, imageHeight*ratio);
       pdf.save('react-logo.pdf');
+    });
+  };
 
-    })
-
-  }
-  return <button onClick={downloadAsPDF}> Download This Page as PDF </button>
+  return <button style={{height:20,cursor:'pointer'}} onClick={downloadAsPDF}> Download This Page as PDF </button>
 }
