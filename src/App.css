@@ -23,12 +23,10 @@
 .app-footer {
   display: flex;
   justify-content: center;
+  align-items: end;
   height: 10vh;
   padding: 5px;
 }
 
-.app-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+
 
