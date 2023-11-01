@@ -5,6 +5,7 @@
 .app-header {
   display: flex;
   justify-content: center;
+  align-items: center;
   height: 20vh;
   color: white;
   background-color: #282c34;
@@ -23,7 +24,7 @@
 .app-footer {
   display: flex;
   justify-content: center;
-  align-items: end;
+  align-items: flex-end;
   height: 10vh;
   padding: 5px;
 }
